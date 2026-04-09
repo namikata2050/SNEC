@@ -1,0 +1,7 @@
+r0=8.0d12
+ek=10.0*0.9
+parameter(m56ni=2.0*0.9) !default 0.1*0.9
+parameter(mime=4.0*0.9) !default 0.2*0.9
+parameter(mo=14.0*0.9) !default 0.7*0.9
+csm_rho_base=1.0d-9
+csm_A=0.4

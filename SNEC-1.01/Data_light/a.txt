@@ -1,0 +1,4 @@
+r0=4.0d13
+csm_rho_base=4.0d-12
+csm_A=0.4
+csm_B=1.0d-14

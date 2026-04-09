@@ -1,0 +1,67 @@
+mingw32-make clean
+mingw-make
+./snec.exe
+Snec-1.01でやる
+
+
+r0は何の半径か
+ーt0におけるejの最大半径。r0=vmax*t0だった
+zmetalは何の金属量か
+ー太陽組成の何倍か。1なら太陽と同じ　26はFe,28はNi
+どこからが外層か　innerが0とはどこで定義しているか
+ーveで区切られる。vel(i).le.veとは？
+外層の密度分布でv^-10のvは？
+ーそのグリッドにおけるejの速度。速度の比を半径の比のように扱う
+目標とする運動エネルギーとは最大のエネルギーということ？
+ーej全体の運動エネルギー
+なぜ電子捕獲元素がないのか
+ーW7(1aSN)や中性子星が残る場合は0。今回は？
+混合領域の幅とはグリッドに対するもの？
+ー質量座標に対する幅。あんまわからん
+内部質量の境界値とはなに
+ー中心から数えたとき層の境界の質量座標
+グリッドの密度と内部質量はどう違うか
+ー密度はその点の質量。内部質量は積算
+openでunknownは使わない方がいい？
+ーnewだとファイルがないことが前提。あれば上書きがunknown
+"do m=1,nelm
+         mf0_ece(m)=0.0d0
+      end do
+      ni0_ece=0.1
+      mf0_ece(26)=0.45
+      mf0_ece(28)=0.45
+      enuc0_ece=1.76"
+の26,28や値はなにか
+ー0.45などは質量分率。層の組成を定義
+中心層、Ni56層、中間質量元素層、酸素層はどれが外側か
+ーその順番
+ここでは各元素の質量を適切に定めている？
+ーもっともらしい代表値が入ってる
+
+enucやdumとはなんのこと
+ー核エネルギー(直接与えてる)とダミー
+real(nn)はなに
+ー整数nnを実数へ
+リスケーリングの式"ve=ve*(ek/edum)**0.5*(mej/mdum)**(-0.5) !updated guess
+      rho0=rho0*(ek/edum)**(-1.5)*(mej/mdum)**2. !initial guess"の指数はどこからきた
+ー次元解析。後半のmは2ではなく2.5?
+"encmece=mece
+      encmece0=encmece-mix_ece
+      encmece1=encmece+mix_ece
+      encm56ni=encmece+m56ni
+      encm56ni0=encm56ni-mix_56ni
+      encm56ni1=encm56ni+mix_56ni
+      encmime=encm56ni+mime
+      encmime0=encmime-mix_ime
+      encmime1=encmime+mix_ime
+      encmo=encmime+mo"
+の0や1の添え字はなにを表しているのか
+ー混合領域の境界。
+各層での質量や元素組成を定め、グリッドに入っている質量を積算した値と比べてどのグリッドまでがどの層かを決めているのですか
+ーあってる
+mfni、mf0_eceは何を表しているか
+ーグリッドに含まれるNiの質量分率と、mass fraction(templete)of ECE layer
+100  format(40(1x,1pe12.5))とはなにか
+ーデータを空白区切りで指数表記で40個書き出す
+
+arad,mwdという定数はなに
